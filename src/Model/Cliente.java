@@ -1,5 +1,4 @@
 package Model;
-
 public class Cliente {
 
     private Long idCliente;
@@ -45,6 +44,11 @@ public class Cliente {
                 '}';
     }
 
+
+    public Cliente(String nome, String numero) {
+        this.nome = nome;
+        this.numero = numero;
+    }
 
     public Cliente(){
     }

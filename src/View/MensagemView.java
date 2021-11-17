@@ -1,5 +1,7 @@
 package View;
 
+import Controller.ClienteController;
+import Controller.MensagemController;
 import Model.Mensagem;
 
 import java.util.Scanner;
@@ -7,6 +9,10 @@ import java.util.Scanner;
 public class MensagemView {
 
     Scanner entrada = new Scanner(System.in);
+    MensagemController mensagemController = new MensagemController();
+
+
+
     public void cadastrarMensagem(){
 
         Mensagem mensagem = new Mensagem();
@@ -23,7 +29,7 @@ public class MensagemView {
         entrada.nextLine();
 
         System.out.println("Mensagem enviada! \n");
-
+        mensagemController.cadastrarMensagem(mensagem);
     }
 
 

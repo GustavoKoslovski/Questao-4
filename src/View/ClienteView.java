@@ -1,13 +1,18 @@
 package View;
 import Controller.ClienteController;
+import Controller.MensagemController;
 import Model.Cliente;
 import java.util.Scanner;
-
 public class ClienteView {
 
     Scanner entrada = new Scanner(System.in);
     ClienteController clienteController = new ClienteController();
     MensagemView mensagemView = new MensagemView();
+
+
+    public void listarClientes(){
+        clienteController.listarClientes();
+    }
 
     public void cadastrarCliente(){
 
@@ -28,16 +33,18 @@ public class ClienteView {
 
         System.out.println("Cliente cadastrado!\n" + cliente);
 
+        clienteController.cadastrarCliente(cliente);
     }
 
     public void menuCliente(){
 
-        System.out.println("1 - Listar cliente\n2 - Cadastrar cliente\n3 - Acessar cliente");
+        System.out.println("1 - Listar cliente\n 2 - Cadastrar cliente\n 3 - Cadastrar mensagem");
 
         switch (entrada.nextInt()){
 
             case 1:
-
+            this.listarClientes();
+            this.menuCliente();
                 break;
 
             case 2:
@@ -48,7 +55,8 @@ public class ClienteView {
                 break;
 
             case 3:
-
+            mensagemView.cadastrarMensagem();
+            this.menuCliente();
                 break;
 
         }
